@@ -1,0 +1,25 @@
+{
+  "name": "denote",
+  "version": "0.1.0",
+  "main": "main.js",
+  "license": "UNLICENSED",
+  "engines": {
+    "node" : "^7.4.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.24.0",
+    "tmp": "^0.0.31"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "node": 7.4
+        }
+      ]
+    ]
+  }
+}
