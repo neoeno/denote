@@ -53,9 +53,9 @@ const gitCommitAndPush = () => {
     .then(() => console.log("Pushed!"))
 }
 
-makeDirectoryAnd(
-  () => writeHeaderAnd(
-    () => openEditorAnd(
-      () => deleteBlankNoteOr(
-        () => gitCommitAndPush()
-))))
+const chain = (fn, ...fns) => () => {
+  if (fn == undefined) { return }
+  return fn(chain(...fns))
+}
+
+chain(makeDirectoryAnd, writeHeaderAnd, openEditorAnd, deleteBlankNoteOr, gitCommitAndPush)()
