@@ -26,6 +26,12 @@ const openEditorAnd = (fn) => {
   editor(filename, fn)
 }
 
+const pullAsynchronouslyAnd = (fn) => {
+  git(root)
+    .pull('origin', 'master')
+  fn()
+}
+
 const makeDirectoryAnd = (fn) => {
   fs.mkdir(directoryPath, err => {
     if (err && err.code !== 'EEXIST') throw err
@@ -59,4 +65,11 @@ const chain = (fn, ...fns) => () => {
   return fn(chain(...fns))
 }
 
-chain(makeDirectoryAnd, writeHeaderAnd, openEditorAnd, deleteBlankNoteOr, gitCommitAndPush)()
+chain(
+  pullAsynchronouslyAnd,
+  makeDirectoryAnd,
+  writeHeaderAnd,
+  openEditorAnd,
+  deleteBlankNoteOr,
+  gitCommitAndPush
+)()
