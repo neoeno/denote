@@ -4,8 +4,9 @@ import tmp from 'tmp'
 import editor from 'editor'
 import trash from 'trash'
 import git from 'simple-git'
+import userHome from 'user-home'
 
-const root = `/Users/kay/notes`
+const root = `${userHome}/notes`
 const weekDirectory = moment().startOf('isoWeek').format("[WC]-YYYY-MM-DD")
 const dayFilename = moment().format("YYYMMDDHHmmss-dddd-hh-mma")
 const directoryPath = `${root}/${weekDirectory}`

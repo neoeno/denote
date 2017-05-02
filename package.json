@@ -14,7 +14,8 @@
     "moment": "^2.18.1",
     "simple-git": "^1.70.0",
     "tmp": "^0.0.31",
-    "trash": "^4.0.1"
+    "trash": "^4.0.1",
+    "user-home": "^2.0.0"
   },
   "babel": {
     "presets": [
